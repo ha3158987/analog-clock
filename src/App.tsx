@@ -1,24 +1,31 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
+import Clock from './components/Clock';
+import useClockStore, { UseClockStoreType } from './store/useClockStore';
 
 function App() {
   // const [count, setCount] = useState(0);
-  const [time, setTime] = useState({
-    hour: 0,
-    minute: 0,
-    second: 0
-  })
+  // const [time, setTime] = useState({
+  //   hour: 0,
+  //   minute: 0,
+  //   second: 0
+  // })
+  const hour = useClockStore((state: UseClockStoreType) => state.hour);
+  const minute = useClockStore((state: UseClockStoreType) => state.minute);
+  const second = useClockStore((state: UseClockStoreType) => state.second);
+  const updateCurrentTime = useClockStore((state: UseClockStoreType) => state.updateCurrentTime);
+
 
   const getCurrentTimer = () =>
     setInterval(() => {
       const now = new Date();
 
-      setTime({
+      updateCurrentTime({
         hour: now.getHours(),
         minute: now.getMinutes(),
-        second: new Date().getSeconds()
+        second: now.getSeconds()
       })
 
     }, 1000);
@@ -26,7 +33,6 @@ function App() {
 
   useEffect(() => {
     const timerId = getCurrentTimer();
-
     return () => clearInterval(timerId);
   }, [])
 
@@ -42,11 +48,11 @@ function App() {
         </a>
       </div> */}
       <h1>This is an analogue clock</h1>
-      <div>
-        <div>{time.hour}</div>
-        <div>{time.minute}</div>
-        <div>{time.second}</div>
-      </div>
+      <Clock>
+        <div>{hour}</div>
+        <div>{minute}</div>
+        <div>{second}</div>
+      </Clock>
       {/* <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
