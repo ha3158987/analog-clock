@@ -11,12 +11,21 @@
     "skipLibCheck": true,
     "baseUrl": "./",
     "paths": {
-      "@store/*": [
-        "src/store/*"
+      "@/*": [
+        "src/*"
       ],
       "@assets/*": [
         "src/assets/*"
       ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@store/*": [
+        "src/store/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ]
     },
     /* Bundler mode */
     "moduleResolution": "bundler",
