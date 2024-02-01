@@ -1,0 +1,15 @@
+.clock-wrapper {
+    border: 10px solid black;
+    border-radius: 50%;
+
+    height: 500px;
+    width: 500px;
+
+    background-color: rgb(254, 233, 208);
+}
+
+.clock-number {
+    font-weight: 500;
+    font-size: 40px;
+    color: rgb(42, 39, 39);
+}

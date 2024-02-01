@@ -1,13 +1,10 @@
-import './App.css'
-import Clock from '@components/Clock';
+import './App.css';
+import Clock from '@/components/clock/Clock';
 
 function App() {
-
   return (
-    <>
-      <Clock />
-    </>
-  )
+    <Clock />
+  );
 }
 
-export default App
+export default App;
