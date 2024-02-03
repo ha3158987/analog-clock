@@ -34,7 +34,7 @@
 
     height: calc(500px * 0.2);
     width: 2px;
-    background-color: red;
+    background-color: black;
 }
 
 #minute-hand {
@@ -45,5 +45,16 @@
 
     height: calc(500px * 0.3);
     width: 2px;
-    background-color: green;
+    background-color: black;
+}
+
+#second-hand {
+    position: absolute;
+
+    top: calc(250px - ((500px * 0.35) / 2));
+    left: 252.5px;
+
+    height: calc(500px * 0.35);
+    width: 2px;
+    background-color: red;
 }
