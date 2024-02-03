@@ -7,18 +7,33 @@
     border: 10px solid black;
     border-radius: 50%;
     background-color: rgb(254, 233, 208);
+
+    cursor: pointer;
 }
 
 // * 12번째 인덱스 직전까지 반복
 @for $i from 1 to 13 {
     .clock-number:nth-child(#{$i}) {
         position: absolute;
-        top: calc(sin(#{$i * 30 - 90}deg) * (50% * 0.9) + 50%);
-        left: calc(cos(#{$i * 30 - 90}deg) * (50% * 0.9) + 50%);
+
+        top: calc(sin(#{$i * 30 - 90}deg) * (50% * 0.85) + 50%);
+        left: calc(cos(#{$i * 30 - 90}deg) * (50% * 0.85) + 50%);
         transform: translate(-50%, -50%);
 
         font-weight: 500;
         font-size: 40px;
         color: rgb(42, 39, 39);
     }
+}
+
+#hour-hand {
+    position: absolute;
+
+    top: calc(500px * 0.2) * 2;
+    left: 250px;
+
+    height: calc(500px * 0.2);
+    width: 2px;
+    background-color: red;
+
 }
