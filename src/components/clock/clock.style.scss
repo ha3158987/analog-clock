@@ -1,15 +1,24 @@
 .clock-wrapper {
-    border: 10px solid black;
-    border-radius: 50%;
+    position: relative;
 
     height: 500px;
     width: 500px;
 
+    border: 10px solid black;
+    border-radius: 50%;
     background-color: rgb(254, 233, 208);
 }
 
-.clock-number {
-    font-weight: 500;
-    font-size: 40px;
-    color: rgb(42, 39, 39);
+// * 12번째 인덱스 직전까지 반복
+@for $i from 1 to 13 {
+    .clock-number:nth-child(#{$i}) {
+        position: absolute;
+        top: calc(sin(#{$i * 30 - 90}deg) * (50% * 0.9) + 50%);
+        left: calc(cos(#{$i * 30 - 90}deg) * (50% * 0.9) + 50%);
+        transform: translate(-50%, -50%);
+
+        font-weight: 500;
+        font-size: 40px;
+        color: rgb(42, 39, 39);
+    }
 }

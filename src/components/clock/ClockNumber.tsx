@@ -1,8 +1,9 @@
 import React from 'react';
+import '@components/clock/clock.style.scss';
 
 function ClockNumber({ number }: { number: number }) {
   return (
-    <div className="clock-number">{number}</div>
+    <span className="clock-number">{number}</span>
   );
 }
 
