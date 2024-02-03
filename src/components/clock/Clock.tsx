@@ -27,11 +27,11 @@ function Clock() {
   }, []);
 
   return (
-    <div className="clock-wrapper">
+    <div id="clock-wrapper">
       {clockNumber.map((el) => <ClockNumber number={el} />)}
-      <div>{hour}</div>
-      <div>{minute}</div>
-      <div>{second}</div>
+      <div id='hour-hand'>{hour}</div>
+      <div id='minute-hand'>{minute}</div>
+      <div id='second-hand'>{second}</div>
     </div>
   );
 }
