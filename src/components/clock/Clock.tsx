@@ -29,9 +29,10 @@ function Clock() {
   return (
     <div id="clock-wrapper">
       {clockNumber.map((el) => <ClockNumber number={el} />)}
-      <span id='hour-hand' style={{ transform: `rotate(${(360 / 12 * hour) + (30 / 60 * minute)}deg) translate(-50%, -50%)` }} />
-      <span id='minute-hand' style={{ transform: `rotate(${360 / 60 * minute}deg) translate(-50%, -50%)` }} />
-      <span id='second-hand' style={{ transform: `rotate(${360 / 60 * second}deg) translate(-50%, -50%)` }} />
+      <span className='center' />
+      <span className='hour-hand' style={{ transform: `rotate(${(360 / 12 * hour) + (30 / 60 * minute)}deg) translate(-50%, -50%)` }} />
+      <span className='minute-hand' style={{ transform: `rotate(${360 / 60 * minute}deg) translate(-50%, -50%)` }} />
+      <span className='second-hand' style={{ transform: `rotate(${360 / 60 * second}deg) translate(-50%, -50%)` }} />
     </div>
   );
 }
