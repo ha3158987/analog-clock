@@ -6,30 +6,16 @@ import Tooltip from '@components/tooltip/Tooltip';
 
 function Clock() {
   const clockNumbers = Array.from({ length: 12 }, (_, index) => index + 1);
-  const {
-    hour, minute, second, updateCurrentTime,
-  } = useClockStore();
-
+  const { hour, minute, second, updateTimer } = useClockStore();
   const [isVisible, setIsVisible] = useState(false);
 
   const handleMouseEnter = () => setIsVisible(true);
 
   const handleMouseLeave = () => setIsVisible(false);
 
-  const getCurrentTimer = () => setInterval(() => {
-    const now = new Date();
-
-    updateCurrentTime({
-      hour: now.getHours(),
-      minute: now.getMinutes(),
-      second: now.getSeconds(),
-    });
-  }, 1000);
-
-
   useEffect(() => {
-    const timerId = getCurrentTimer();
-    return () => clearInterval(timerId);
+    const timerInterval = updateTimer;
+    return () => clearInterval(timerInterval);
   }, []);
 
   return (

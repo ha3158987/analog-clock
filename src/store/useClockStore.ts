@@ -1,23 +1,24 @@
 import { create } from 'zustand';
 
-interface UpdateCurrentTimeParams {
-  hour: number;
-  minute: number;
-  second: number;
-}
-
 export interface UseClockStoreType {
   hour: number;
   minute: number;
   second: number;
-  updateCurrentTime: (param: UpdateCurrentTimeParams) => void;
+  updateTimer: NodeJS.Timeout;
 }
 
 const useClockStore = create<UseClockStoreType>((set) => ({
   hour: 0,
   minute: 0,
   second: 0,
-  updateCurrentTime: ({ hour, minute, second }: UpdateCurrentTimeParams) => set({ hour, minute, second }),
+  updateTimer: setInterval(() => {
+    const now = new Date();
+    set({
+      hour: now.getHours(),
+      minute: now.getMinutes(),
+      second: now.getSeconds(),
+    });
+  }, 1000)
 }));
 
 
