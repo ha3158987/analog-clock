@@ -14,7 +14,7 @@ function Clock() {
   const handleMouseLeave = () => setIsVisible(false);
 
   useEffect(() => {
-    const timerInterval = updateTimer;
+    const timerInterval = updateTimer();
     return () => clearInterval(timerInterval);
   }, []);
 

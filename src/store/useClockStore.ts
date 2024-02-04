@@ -4,14 +4,14 @@ export interface UseClockStoreType {
   hour: number;
   minute: number;
   second: number;
-  updateTimer: NodeJS.Timeout;
+  updateTimer: () => NodeJS.Timeout;
 }
 
 const useClockStore = create<UseClockStoreType>((set) => ({
   hour: 0,
   minute: 0,
   second: 0,
-  updateTimer: setInterval(() => {
+  updateTimer: () => setInterval(() => {
     const now = new Date();
     set({
       hour: now.getHours(),
