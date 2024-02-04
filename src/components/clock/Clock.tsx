@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
 import useClockStore from '@store/useClockStore';
+import Tooltip from '@components/tooltip/Tooltip';
 import '@components/clock/clock.style.scss';
 
 function Clock() {
@@ -34,6 +35,7 @@ function Clock() {
       <span id='hour-hand' style={{ transform: `rotate(${(360 / 12 * hour) + (30 / 60 * minute)}deg) translate(-50%, -50%)` }} />
       <span id='minute-hand' style={{ transform: `rotate(${360 / 60 * minute}deg) translate(-50%, -50%)` }} />
       <span id='second-hand' style={{ transform: `rotate(${360 / 60 * second}deg) translate(-50%, -50%)` }} />
+      <Tooltip />
     </div>
   );
 }
