@@ -20,4 +20,5 @@ const useClockStore = create<UseClockStoreType>((set) => ({
   updateCurrentTime: ({ hour, minute, second }: UpdateCurrentTimeParams) => set({ hour, minute, second }),
 }));
 
+
 export default useClockStore;

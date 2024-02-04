@@ -1,35 +1,20 @@
-import { useState, MouseEvent } from 'react';
-
 import '@components/tooltip/tooltip.style.scss';
+import useClockStore from '@/store/useClockStore';
+import useTooltip from '@/hooks/useTooltip';
 
-const Tooltip = () => {
-    const [isVisible, setIsVisible] = useState(false);
-    const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
 
-    const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
-        setTooltipPosition({ x: e.clientX - 300, y: e.clientY - 200 });
-    }
+const Tooltip = ({ show }: { show: boolean }) => {
 
-    const exposeTooltip = () => {
-        setIsVisible(true)
-    }
+  const { hour, minute, second } = useClockStore();
+  const { tooltipPosition } = useTooltip();
 
-    const hideTooltip = () => {
-        setIsVisible(false)
-    }
-
-    return (
-        <div className='tooltip-container'
-            onMouseMove={handleMouseMove}
-            onMouseEnter={exposeTooltip}
-            onMouseLeave={hideTooltip}
-        >
-            {isVisible &&
-                <div className='tooltip' style={{ top: tooltipPosition.y, left: tooltipPosition.x }} >{'Tooltip'}</div>
-            }
-
-        </div>
-    )
+  return (
+    <>
+      {show && (
+        <div id={'tooltip'} style={{ ...tooltipPosition }}>{`${hour}시 ${minute}분 ${second}초`}</div>
+      )}
+    </>
+  )
 }
 
 export default Tooltip;
