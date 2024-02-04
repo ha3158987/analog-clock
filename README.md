@@ -1,30 +1,12 @@
-# React + TypeScript + Vite
+# Adriel Online Test for Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 기술 스택
 
-Currently, two official plugins are available:
+1. SPA framework: React.js
+2. Statement management: zustand
+3. Bundler: Vite
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 구현 상세
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. 현재 시간을 기준으로 한 시침, 분침, 초침(옵션)
+2. 시계에 마우스 오버시 현재 시간을 툴팁으로 표시(툴팁은 마우스 포인터 우상단에 위치 하며, 마우스의 움직임을 따라 지속적으로 포지션이 업데이트 되어야 함)
