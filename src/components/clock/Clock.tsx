@@ -13,6 +13,12 @@ function Clock() {
 
   const handleMouseLeave = () => setIsVisible(false);
 
+  const getHourDegree = (360 / 12 * hour) + (30 / 60 * minute)
+
+  const getMinuteDegree = (360 / 60 * minute);
+
+  const getSecondDegree = (360 / 60 * second);
+
   useEffect(() => {
     const timerInterval = updateTimer();
     return () => clearInterval(timerInterval);
@@ -26,9 +32,9 @@ function Clock() {
       >
         {clockNumbers.map((number) => <span className="clock-number">{number}</span>)}
         <span id='center' />
-        <span id='hour-hand' style={{ transform: `rotate(${(360 / 12 * hour) + (30 / 60 * minute)}deg) translate(-50%, -50%)` }} />
-        <span id='minute-hand' style={{ transform: `rotate(${360 / 60 * minute}deg) translate(-50%, -50%)` }} />
-        <span id='second-hand' style={{ transform: `rotate(${360 / 60 * second}deg) translate(-50%, -50%)` }} />
+        <span id='hour-hand' style={{ transform: `rotate(${getHourDegree}deg ) translate(-50%, -100%)` }} />
+        <span id='minute-hand' style={{ transform: `rotate(${getMinuteDegree}deg) translate(-50%, -100%)` }} />
+        <span id='second-hand' style={{ transform: `rotate(${getSecondDegree}deg) translate(-50%, -100%)` }} />
       </div >
       <Tooltip show={isVisible} />
     </>

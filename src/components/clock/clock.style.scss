@@ -4,7 +4,6 @@
     height: 500px;
     width: 500px;
 
-    border: 10px solid black;
     border-radius: 50%;
     background-color: rgb(254, 233, 208);
 
@@ -28,9 +27,7 @@
 
 #center {
     position: absolute;
-
-    top: 252.5px;
-    left: 252.5px;
+    top: 250px;
     transform: translate(-50%, -50%);
 
     height: 25px;
@@ -44,33 +41,33 @@
 
 #hour-hand {
     position: absolute;
-
-    top: calc(250px - ((500px * 0.2) / 2));
-    left: 252.5px;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0;
 
     height: calc(500px * 0.2);
-    width: 5px;
+    width: 8px;
     background-color: black;
 }
 
 #minute-hand {
     position: absolute;
-
-    top: calc(250px - ((500px * 0.3) / 2));
-    left: 252.5px;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0;
 
     height: calc(500px * 0.3);
-    width: 4px;
+    width: 6px;
     background-color: black;
 }
 
 #second-hand {
     position: absolute;
-
-    top: calc(250px - ((500px * 0.35) / 2));
-    left: 252.5px;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0;
 
     height: calc(500px * 0.35);
-    width: 2px;
+    width: 5px;
     background-color: red;
 }
